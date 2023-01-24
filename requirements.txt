@@ -2,3 +2,5 @@ from-root==1.0.2
 pyyaml
 scikit-learn
 evidently
+imblearn
+dill
