@@ -4,3 +4,4 @@ scikit-learn
 evidently
 imblearn
 dill
+neuro-mf

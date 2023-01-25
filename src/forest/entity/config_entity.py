@@ -32,3 +32,11 @@ class DataTransformationConfig:
         self.transformed_object_file_path: str = os.path.join(self.data_transformation_dir,
                                                         DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR,
                                                         PREPROCSSING_OBJECT_FILE_NAME)
+
+@dataclass
+class ModelTrainerConfig:
+    def __init__(self):
+        self.model_trainer_dir: str = os.path.join(from_root(),ARTIFACTS_DIR, MODEL_TRAINER_DIR_NAME)
+        self.trained_model_file_path: str = os.path.join(self.model_trainer_dir, MODEL_TRAINER_TRAINED_MODEL_DIR, MODEL_FILE_NAME)
+        self.expected_accuracy: float = MODEL_TRAINER_EXPECTED_SCORE
+        self.model_config_file_path: str = MODEL_TRAINER_MODEL_CONFIG_FILE_PATH
