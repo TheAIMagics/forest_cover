@@ -8,6 +8,8 @@ from src.forest.logger import logging
 from src.forest.entity.config_entity import PredictionPipelineConfig
 from src.forest.entity.s3_estimator import ForestEstimator
 
+from src.forest.utils.main_utils import *
+
 
 class PredictionPipeline:
     def __init__(self,prediction_pipeline_config:PredictionPipelineConfig=PredictionPipelineConfig(),)->None:
@@ -37,10 +39,12 @@ class PredictionPipeline:
     def predict(self,dataframe)->np.ndarray:
         try:
             logging.info("Entered predict method of PredictionPipeline class")
-            model = ForestEstimator(bucket_name=self.prediction_pipeline_config.model_bucket_name,
+            '''model = ForestEstimator(bucket_name=self.prediction_pipeline_config.model_bucket_name,
                                     model_path=self.prediction_pipeline_config.model_file_path)
+'''
+            trained_model = load_object(file_path=self.prediction_pipeline_config.trained_model_file_path)                       
             logging.info("Exited the predict method of PredictionPipeline class")
-            return model.predict(dataframe)
+            return trained_model.predict(dataframe)
         except Exception as e:
             raise CustomException(e,sys)
 

@@ -1,16 +1,18 @@
 import boto3
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 class S3Client:
 
     s3_client=None
     s3_resource = None
     
-    def __init__(self, region_name=os.environ["AWS_DEFAULT_REGION"]):
+    def __init__(self, region_name=os.getenv('AWS_DEFAULT_REGION')):
 
         if S3Client.s3_resource==None or S3Client.s3_client==None:
-            __access_key_id = os.environ["AWS_ACCESS_KEY_ID"]
-            __secret_access_key = os.environ["AWS_SECRET_ACCESS_KEY"]
+            __access_key_id = os.getenv("AWS_ACCESS_KEY_ID")
+            __secret_access_key = os.getenv("AWS_SECRET_ACCESS_KEY")
             if __access_key_id is None:
                 raise Exception("Environment variable:  is not not set.")
             if __secret_access_key is None:

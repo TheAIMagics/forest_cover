@@ -61,3 +61,5 @@ class PredictionPipelineConfig:
     model_bucket_name: str = prediction_pipeline.MODEL_BUCKET_NAME
     model_file_path: str = os.path.join(MODEL_PUSHER_S3_KEY, MODEL_FILE_NAME) #/model-registry/model.pkl
     output_file_name:str = prediction_pipeline.PREDICTION_OUTPUT_FILE_NAME
+    model_trainer_dir: str = os.path.join(from_root(),ARTIFACTS_DIR, MODEL_TRAINER_DIR_NAME)
+    trained_model_file_path: str = os.path.join(model_trainer_dir, MODEL_TRAINER_TRAINED_MODEL_DIR, MODEL_FILE_NAME)

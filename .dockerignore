@@ -1,0 +1,10 @@
+.ipynb_checkpoints
+artifacts
+demo
+env
+logs
+infrastructure
+notebooks
+flowcharts
+docs
+forest_cover.egg-info
